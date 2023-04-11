@@ -1,0 +1,47 @@
+.header {
+    &__container {
+        display: flex;
+        min-height: 116px;
+        align-items: center;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    &__logo {
+    }
+
+    &__menu {
+        flex: 1 1 auto;
+    }
+
+    &__cart {
+    }
+
+    &__button {
+    }
+}
+.menu {
+    &__icon {
+    }
+
+    &__list {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &__item {
+    }
+
+    &__link {
+    }
+}
+.icon-menu {
+    display: none;
+}
+.cart-header {
+    &__text {
+    }
+
+    &__quantuty {
+    }
+}
