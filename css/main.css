@@ -75,20 +75,233 @@ body {
   flex: 1 1 auto;
 }
 
+.button {
+  display: inline-block;
+  background-color: #3d96f4;
+  border-radius: 50px;
+  text-align: center;
+  letter-spacing: 2px;
+  color: #fff;
+  font-style: 14px;
+  font-weight: 500;
+  line-height: 1.43; /* 22/14 */
+  padding: 16px 30px;
+  transition: background-color 0.3s ease 0s;
+}
+@media (any-hover: hover) {
+  .button:hover {
+    background-color: #68a9f0;
+  }
+}
+@media (max-width: 991.98px) {
+  .button {
+    padding: 14px 20px;
+  }
+}
+@media (max-width: 447.98px) {
+  .button {
+    padding: 10px 14px;
+    font-size: 15px;
+  }
+}
+
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(13, 13, 17, 0.8);
+}
 .header__container {
   display: flex;
+  column-gap: 35px;
   min-height: 116px;
   align-items: center;
   padding-top: 5px;
   padding-bottom: 5px;
 }
+@media (max-width: 991.98px) {
+  .header__container {
+    column-gap: 25px;
+    min-height: 90px;
+  }
+}
+@media (max-width: 767.98px) {
+  .header__container {
+    min-height: 70px;
+    column-gap: 15px;
+  }
+}
+.header__logo {
+  position: relative;
+  z-index: 2;
+}
+@media (max-width: 560px) {
+  .header__logo {
+    width: 33px;
+    flex: 0 0 32px;
+    overflow: hidden;
+  }
+}
 .header__menu {
   flex: 1 1 auto;
 }
+.header__cart {
+  position: relative;
+  z-index: 2;
+}
+.header__button {
+  flex: 0 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 767.98px) {
+  .menu__body {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    left: -100%;
+    top: 0;
+    padding: 100px 15px 30px 15px;
+    overflow-y: auto;
+    transition: left 0.4s ease;
+  }
+  .menu__body::before {
+    content: "";
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    height: 70px;
+    background-color: #000;
+    z-index: 2;
+    transition: left 0.4s ease;
+  }
+}
 .menu__list {
   display: flex;
+  flex-wrap: wrap;
+  column-gap: 3px;
   justify-content: flex-end;
+  column-gap: 35px;
 }
+@media (max-width: 767.98px) {
+  .menu__list {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    column-gap: 10px;
+  }
+}
+.menu__link {
+  display: block;
+  font-size: 16px;
+  color: #fff;
+  line-height: 1.625; /* 26/16 */
+}
+@media (any-hover: hover) {
+  .menu__link:hover {
+    text-decoration: underline;
+  }
+}
+@media (max-width: 767.98px) {
+  .menu__link {
+    font-size: 32px;
+  }
+}
+@media (max-width: 991.98px) {
+  .menu__list {
+    column-gap: 25px;
+  }
+}
+
 .icon-menu {
   display: none;
+}
+@media (max-width: 767.98px) {
+  .icon-menu {
+    display: flex;
+    flex: 0 0 30px;
+    height: 18px;
+    position: relative;
+    z-index: 5;
+  }
+  .icon-menu span, .icon-menu::before, .icon-menu::after {
+    content: "";
+    right: 0;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    transition: all 0.4s ease;
+  }
+  .icon-menu::after {
+    bottom: 0;
+  }
+  .icon-menu::before {
+    top: 0;
+  }
+  .icon-menu span {
+    top: calc(50% - 1px);
+  }
+}
+
+.cart-header {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  color: #fff;
+}
+@media (any-hover: hover) {
+  .cart-header__text:hover {
+    text-decoration: underline;
+  }
+}
+.cart-header__text {
+  font-size: 18px;
+  line-height: 1.555; /* 28/18 */
+}
+@media (max-width: 560px) {
+  .cart-header__text {
+    display: none;
+  }
+}
+.cart-header__quantuty {
+  background: rgba(129, 129, 139, 0.3);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+}
+@media (max-width: 560px) {
+  .cart-header__quantuty {
+    width: 30px;
+    height: 40px;
+    padding-top: 4px;
+    border-radius: 0;
+    background: url("../../img/header/basket.svg") top/30px no-repeat;
+  }
+}
+
+.menu-open .menu__body,
+.menu-open .menu__body::before {
+  left: 0px;
+}
+
+.menu-open .icon-menu span {
+  width: 0;
+}
+.menu-open .icon-menu::before {
+  top: calc(50% - 1px);
+  transform: rotate(-45deg);
+}
+.menu-open .icon-menu::after {
+  top: calc(50% - 1px);
+  transform: rotate(45deg);
 }
