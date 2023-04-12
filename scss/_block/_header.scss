@@ -4,6 +4,7 @@
     top: 0;
     left: 0;
     background-color: rgba(13, 13, 17, 0.8);
+    z-index: 50;
     &__container {
         display: flex;
         column-gap: 35px;

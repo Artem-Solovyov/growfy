@@ -1,0 +1,105 @@
+.page {
+    &__main {
+    }
+}
+.main {
+    padding-top: 160px;
+    @media (max-width: 991.98px) {
+        padding-top: 120px;
+    }
+    @media (max-width: 767.98px) {
+        padding-top: 100px;
+    }
+    &__container {
+        display: flex;
+        gap: 32px;
+        @media (max-width: 767.98px) {
+            flex-direction: column;
+        }
+    }
+
+    &__content {
+        flex: 0 1 50%;
+        // align-self: center;
+        @media (max-width: 767.98px) {
+            align-self: stretch;
+        }
+    }
+    &__title::before {
+        content: "";
+        position: absolute;
+        background: url("../../img/main/decor.svg") 0 0 / 100% no-repeat;
+        width: 122px;
+        height: 122px;
+        top: -16px;
+        left: -24px;
+    }
+    &__title {
+        position: relative;
+        font-weight: 500;
+        @include adaptive-value("margin-top", 125, 30, 1);
+        @include adaptive-value("font-size", 51, 30, 1);
+        line-height: 1.19;
+        color: #fff;
+
+        &:not(:last-child) {
+            @include adaptive-value("margin-bottom", 28, 12, 1);
+        }
+        @media (min-width: 767.98px) {
+            max-width: 520px;
+        }
+    }
+
+    &__text {
+        &:not(:last-child) {
+            @include adaptive-value("margin-bottom", 33, 20, 1);
+        }
+        @media (min-width: 767.98px) {
+            max-width: 491px;
+        }
+    }
+
+    &__actions {
+        display: flex;
+        @include adaptive-value("column-gap", 32, 12, 1);
+        @include adaptive-value("row-gap", 15, 13, 1);
+        @media (max-width: 479px) {
+            flex-direction: column;
+        }
+    }
+
+    &__button {
+    }
+
+    &__images {
+        flex: 0 1 50%;
+    }
+}
+
+.images-main {
+    display: flex;
+    justify-content: center;
+    gap: 9.615385%; /* 60/624 */
+    &__column {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+    }
+    &__item {
+        // border-radius: 378px;
+        overflow: hidden;
+        &.images-main__item_1,
+        &.images-main__item_4 {
+            border-radius: 378px;
+        }
+        &.images-main__item_2 {
+            border-radius: 378px 378px 0px 378px;
+        }
+        &.images-main__item_3 {
+            border-radius: 378px 0px 378px 378px;
+        }
+        img {
+            width: 100%;
+        }
+    }
+}
