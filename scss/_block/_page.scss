@@ -1,14 +1,21 @@
 .page {
     &__main {
     }
+    &__clients {
+    }
+    &__services {
+    }
 }
 .main {
     padding-top: 160px;
+    padding-bottom: 100px;
     @media (max-width: 991.98px) {
         padding-top: 120px;
+        padding-bottom: 60px;
     }
     @media (max-width: 767.98px) {
         padding-top: 100px;
+        padding-bottom: 30px;
     }
     &__container {
         display: flex;
@@ -25,22 +32,27 @@
             align-self: stretch;
         }
     }
-    &__title::before {
-        content: "";
-        position: absolute;
-        background: url("../../img/main/decor.svg") 0 0 / 100% no-repeat;
-        width: 122px;
-        height: 122px;
-        top: -16px;
-        left: -24px;
-    }
     &__title {
         position: relative;
         font-weight: 500;
-        @include adaptive-value("margin-top", 125, 30, 1);
+        @include adaptive-value("margin-top", 125, 10, 1);
         @include adaptive-value("font-size", 51, 30, 1);
         line-height: 1.19;
         color: #fff;
+        &:first-child {
+            &::before {
+                content: "";
+                position: absolute;
+                background: url("../../img/main/decor.svg") 0 0 / 100% no-repeat;
+                width: 122px;
+                height: 122px;
+                top: -16px;
+                left: -24px;
+            }
+        }
+        &:not(:first-child) {
+            @include adaptive-value("margin-top", 0, 0, 1);
+        }
 
         &:not(:last-child) {
             @include adaptive-value("margin-bottom", 28, 12, 1);
@@ -101,5 +113,126 @@
         img {
             width: 100%;
         }
+    }
+}
+
+// Clients
+
+.clients {
+    @include adaptive-value("padding-top", 100, 30, 1);
+    @include adaptive-value("padding-bottom", 70, 20, 1);
+    &__container {
+    }
+
+    &__title {
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 14px;
+        line-height: 1.5;
+        @include adaptive-value("padding-bottom", 44, 16, 1);
+    }
+
+    &__items {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        @include adaptive-value("column-gap", 74, 10, 1);
+        justify-content: space-evenly;
+    }
+
+    &__item {
+        img {
+            max-width: 100%;
+        }
+    }
+}
+
+//  Services
+
+.services {
+    @include adaptive-value("padding-top", 70, 20, 1);
+    @include adaptive-value("padding-bottom", 100, 20, 1);
+    &__container {
+        display: flex;
+        gap: 32px;
+
+        @media (max-width: 1100px) {
+            flex-direction: column;
+        }
+    }
+
+    &__content {
+        flex: 0 1 50%;
+        align-self: center;
+    }
+
+    &__header {
+    }
+
+    &__label {
+        display: inline-block;
+        border: 1px solid rgba(129, 129, 139, 0.2);
+        border-radius: 12px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-size: 10.8px;
+        line-height: 170%; /* 17/10 */
+        padding: 11px 19px;
+        &:not(:last-child) {
+            @include adaptive-value("margin-bottom", 19, 10, 1);
+        }
+    }
+
+    &__items {
+        flex: 0 1 50%;
+        display: flex;
+        gap: 32px;
+        justify-content: center;
+        @media (max-width: 610px) {
+            flex-direction: column;
+            .services__column:first-child {
+                margin-top: 0px;
+            }
+        }
+    }
+
+    &__column:first-child {
+        margin-top: 48px;
+    }
+
+    &__item {
+        &:not(:last-child) {
+            margin-bottom: 32px;
+        }
+    }
+}
+
+.item-service {
+    background: rgba(129, 129, 139, 0.1);
+    border-radius: 30px;
+    padding: 55px 25px;
+    display: block;
+    &__icon:not(:last-child) {
+        margin-bottom: 16px;
+    }
+
+    &__title {
+        font-weight: 400;
+        font-size: 19px;
+        line-height: 1.421; /* 27/19 */
+        color: #fff;
+        &:not(:last-child) {
+            margin-bottom: 10px;
+        }
+    }
+
+    &__text {
+    }
+}
+
+@media (max-width: 1100px) {
+    .services__header .main__title,
+    .services__header .main__text {
+        max-width: none;
     }
 }
